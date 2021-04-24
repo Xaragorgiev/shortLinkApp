@@ -13,11 +13,12 @@ import java.io.ObjectOutputStream;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/sample.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Сокращение ссылок");
         primaryStage.setScene(new Scene(root, 730, 300));
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(we -> {
@@ -33,9 +34,6 @@ public class Main extends Application {
             }
         });
     }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
+
+

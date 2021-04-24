@@ -1,6 +1,9 @@
 package sample.controllers;
 
+import java.awt.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -70,6 +73,18 @@ public class Controller {
 
                 Hyperlink hyperlink = (Hyperlink) node.lookup("#short_link");
                 hyperlink.setText(res.getString("short_link"));
+                URI uri = new URI(res.getString("long_link"));
+                hyperlink.setOnMouseClicked(mouseEvent -> {
+                    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                        try {
+                            Desktop.getDesktop().browse(uri);
+                        } catch (IOException e) {
+                            help.setText("Адрес недействителен");
+                            help.setStyle("-fx-text-fill: #d70000");
+                            e.printStackTrace();
+                        }
+                    }
+                });
 
                 Node delete = node.lookup("#delete");
 
@@ -89,7 +104,7 @@ public class Controller {
                     }
                 });
 
-            } catch (IOException e) {
+            } catch (IOException | URISyntaxException e) {
                 e.printStackTrace();
             }
             paneVBox.getChildren().add(node);

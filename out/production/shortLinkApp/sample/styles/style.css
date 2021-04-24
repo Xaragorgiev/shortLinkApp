@@ -1,0 +1,52 @@
+.text-input {
+    -fx-text-fill: #fafafa;
+    -fx-background-color:  #3f3f3f;
+    -fx-border-color: #fafafa;
+    -fx-border-radius: 10;
+    -fx-padding: 10 20;
+}
+
+.text-input:focused {
+    -fx-border-color: #3f41d7;
+}
+
+.link:hover {
+    -fx-text-fill: #E06249;
+}
+
+.button {
+    -fx-background-color: #3f3f3f;
+    -fx-border-color: #fafafa;
+    -fx-border-radius: 10;
+    -fx-padding: 10 10;
+}
+
+.button:pressed{
+    -fx-translate-y: 2;
+}
+
+.button:hover {
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #343434;
+}
+
+.scroll-pane {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-hbar-policy: NEVER;
+}
+
+.scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+
+.scroll-pane .corner {
+    -fx-background-insets: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #3f3f3f;
+}
+.scroll-pane {
+    -fx-background-color:transparent;
+}
